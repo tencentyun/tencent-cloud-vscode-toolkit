@@ -1,13 +1,14 @@
 ## 操作场景
-Tencent Serverless Toolkit for VS Code 是腾讯云 Serverless 产品的 VS Code（Visual Studio Code）IDE 的插件。该插件可以让您更好地在本地进行 Serverless 项目开发和代码调试，并且轻松将项目部署到云端。
-本文介绍如何通过腾讯云云函数（Serverless Cloud Function，SCF）及 VS Code 插件开发简单的 Hello World Web 服务。
+
+Tencent Serverless Toolkit for VS Code 是腾讯云 Serverless 产品的 VS Code（Visual Studio Code）IDE 的插件。该插件可以让您更好的在本地进行 Serverless 项目开发和代码调试，并且轻松将项目部署到云端。
 
 通过该 VS Code 插件，您可以：
-- 拉取云端的云函数列表，并触发云函数在云端运行。
+
+- 拉取云端的云函数列表，并触发云函数。
 - 在本地快速创建云函数项目。
-- 在本地开发、调试及测试您的云函数代码。
 - 使用模拟的 COS、CMQ、CKafka、API 网关等触发器事件来触发函数运行。
 - 上传函数代码到云端，更新函数配置。
+- 在云端运行、调试函数代码。
 
 ## 前提条件
 Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverless 之前，需要确保系统中已有以下组件/信息：
@@ -15,8 +16,8 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
 - VS Code ：在 [VS Code下载页面](https://code.visualstudio.com/) 下载对应的 IDE 并安装，其**版本要求为 v1.33.0 +**。
 
 
-
 ## 操作步骤
+
 ### 安装插件
 可通过以下两种方式安装 SCF VS Code 插件：  
 
@@ -32,18 +33,23 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
 
 
 ### 配置插件
->如果您已经在 SCF CLI 中配置了账户信息，无需再次配置，请跳过此步骤。
->
+
+
 1. 单击左侧导航栏的<img src="https://main.qcloudimg.com/raw/4395057dfb3a8f4a92c90ba7dff9b1c1.png" style="margin:-3px 0;">，打开已安装好的 Tencent Serverless 插件。
 2. 单击创建一个腾讯云用户凭证。如下图所示：  
-    ![Alt text](https://main.qcloudimg.com/raw/fca11ef6e54287f2ad400d34123872c9.png)
-3. 根据提示依次输入账号的 APPID，SecretId 及 SecretKey 信息，作为插件调用云 API 时的认证信息。并在认证成功后，选择您希望部署函数的地域。配置信息获取途径请参见 [配置 SCF CLI](https://cloud.tencent.com/document/product/583/33449#.E9.85.8D.E7.BD.AE-scf-cli)。
+![](https://main.qcloudimg.com/raw/fca11ef6e54287f2ad400d34123872c9.png)
+3. 根据提示依次输入账号的 APPID，SecretId 及 SecretKey 信息，作为插件调用云 API 时的认证信息。并在认证成功后，选择您希望部署函数的地域。配置信息获取途径如下：
+ - 账号的 APPID：通过访问控制台中的 [账号信息](https://console.cloud.tencent.com/developer)，可以查看您的 APPID。
+ - SecretId 及 SecretKey：通过访问控制台中的 [API 密钥管理](https://console.cloud.tencent.com/cam/capi)，获取相关密钥或创建相关密钥。
+ - 地域：地域列表及对应的英文写法可 [点此](https://cloud.tencent.com/document/product/213/6091#.E4.B8.AD.E5.9B.BD.E5.A4.A7.E9.99.86.E5.8C.BA.E5.9F.9F) 参阅。
+
 4. 为提升函数上传效率，您可以在 VS Code 中 [设置开启 COS 上传](#openCOS) 。
 
 
 ### 创建函数
+
 1. 单击已配置账户函数列表上方的<img src="https://main.qcloudimg.com/raw/799da4ba342886d96d6a3e10681a2560.png" style="margin:-3px 0;">，在本地初始化新的函数项目。
-2. 根据提示依次选择函数运行时 runtime，并输入函数名。
+2. 根据提示依次选择函数运行时 Runtime，并输入函数名。
 3. 函数信息录入成功后，将开始创建。
 4. 函数创建成功后，会跳转到工作区打开函数的入口文件。
 5. 将 `index.py` 中的代码替换为如下内容：   
@@ -253,6 +259,7 @@ Resources:
 ### 设置 Python path
 如果您有安装多个 Python 版本，可根据当前要调试的 runtime 将 Python 2 或 Python 3 的对应路径填入 Scf 设置即可。如下图所示：
 ![](https://main.qcloudimg.com/raw/036d49a4388314a96880021b8a7aaff9.png)
+
 
 
 
