@@ -11,9 +11,10 @@ Tencent Serverless Toolkit for VS Code 是腾讯云 Serverless 产品的 VS Code
 - 在云端运行、调试函数代码。
 
 ## 前提条件
-Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverless 之前，需要确保系统中已有以下组件/信息：
+
+Tencent Serverless Toolkit for VS Code 均可在 Windows，Linux 和 MacOS 中安装。在安装 Tencent Serverless Toolkit for VS Code 之前，需要确保系统中已有以下组件/信息：
+- VS Code ：在 [VS Code下载页面](https://code.visualstudio.com/) 下载对应的 IDE 并安装，其**版本要求为 v1.43.0 +**。
 - 已注册腾讯云帐户。若未注册腾讯云账户，可 [点此](https://cloud.tencent.com/register) 进入注册页面。
-- VS Code ：在 [VS Code下载页面](https://code.visualstudio.com/) 下载对应的 IDE 并安装，其**版本要求为 v1.33.0 +**。
 
 
 ## 操作步骤
@@ -23,6 +24,7 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
 
 **a. 通过插件市场直接安装**
 进入 [插件市场](https://marketplace.visualstudio.com/items?itemName=tencentcloud.tencent-cloud-vscode-toolkit) 单击【install】进行安装。
+
 
 **b. 通过 VS Code IDE 安装**
 1. 运行 VS Code IDE。
@@ -48,28 +50,13 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
 
 ### 创建函数
 
-1. 单击已配置账户函数列表上方的<img src="https://main.qcloudimg.com/raw/799da4ba342886d96d6a3e10681a2560.png" style="margin:-3px 0;">，在本地初始化新的函数项目。
-2. 根据提示依次选择函数运行时 Runtime，并输入函数名。
-3. 函数信息录入成功后，将开始创建。
-4. 函数创建成功后，会跳转到工作区打开函数的入口文件。
-5. 将 `index.py` 中的代码替换为如下内容：   
-```
-   import sys
-   import logging
-   print('Loading function')
-   logger = logging.getLogger()
-   def main_handler(event, context):
-       logger.info("start main handler")
-       print(event)
-       body = 'API GW Test Success'
-       response = {
-           "isBase64": False,
-           "statusCode": 200,
-           "headers": {"Content-Type": "text",    "Access-Control-Allow-Origin": "*"},
-           "body": body
-       }
-       return response
-```
+
+1. 在配置账户对应地域下的云端函数列表中，单击【创建一个函数】，在本地初始化新的函数项目。
+2. 根据提示依次选择函数运行时 runtime，输入函数名。
+![](https://main.qcloudimg.com/raw/0ecfb5a4aa16c608e52bb7bf7fe6780a.png)  
+![](https://main.qcloudimg.com/raw/fe7c44e897563bffde70f9bc39298bd0.png)  
+3. 函数信息录入成功后，将开始创建。创建成功后，列表页中会展示新建的本地函数（以`scfinvscode` 函数为例）。如下图所示：  
+ ![](https://main.qcloudimg.com/raw/4d9ecfce5ac0f85e05b1e63ed98d6234.png)
 
 
 ### 部署函数（含配置触发器）
@@ -81,17 +68,13 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
 ![](https://main.qcloudimg.com/raw/0b830929feab34d609b00f59806a48b9.png)
 2. 单击列表中函数名称右侧的【上传到云端】按钮，等待函数上传完毕。在这个过程中，可以通过 OUTPUT 输出窗口，看到函数的部署过程中的相关信息。
 ![](https://main.qcloudimg.com/raw/a597768d791603180f828deb1d7c197d.png)
-3. 部署完成后，可在 【云端函数】 列表页中查看到函数的相关信息。您也可以登录 [云函数控制台](https://console.cloud.tencent.com/scf)，到相应地域查看已成功部署的函数。
-
->- 使用 COS 部署函数最高能提升80%的速率，大大提高了工作效率。但在部署频次、部署包很大时，可能会产生 COS 计费。
->- 您可以在 VS Code 中 [设置开启 COS 上传](#openCOS) 。
+3. 部署完成后，可在 【云端函数】 列表页中查看到函数的相关信息。
 
 
 ### 云端测试
 
 单击左侧列表右侧的<img src="https://main.qcloudimg.com/raw/fef0ef2e04f094c5b3a390e6d78672c0.png" style="margin:-3px 0;">，即可在页面中查看到函数在云端运行的相关信息。如下图所示：    
 ![](https://main.qcloudimg.com/raw/2c7fb7f915028f4187265af6aef44aaf.png)
-
 
 
 ### 更多功能
@@ -104,8 +87,8 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
 
 <span id="openCOS"></span>
 ### 设置开启 COS 上传
-1. 选择左下角的<img src="https://main.qcloudimg.com/raw/20fd46098cf037eb003dc41f1f913313.png" style="margin:-3px 0px;"/> >【Settings】。如下图所示：
-    ![](https://main.qcloudimg.com/raw/e9e1f63819d29d86d8f9cae9cbb9e31a.png)
+
+1. 选择左下角的<img src="https://main.qcloudimg.com/raw/20fd46098cf037eb003dc41f1f913313.png" style="margin:-3px 0px;"/> >【Settings】。
 2. 在“Settings”页面，选择【Extensions】>【Scf】并勾选【Enable deployed by COS】。如下图所示：
     ![](https://main.qcloudimg.com/raw/05ca88747213e5a102747683dc20233a.png)
 
