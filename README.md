@@ -83,16 +83,6 @@ Tencent Serverless Toolkit for VS Code 均可在 Windows，Linux 和 MacOS 中�
 
 安装或使用过程中有遇到问题，可参考 [SCF 工具类常见问题](https://cloud.tencent.com/document/product/583/33456) 解决，您也可以通过 [提交issue](https://github.com/tencentyun/tencent-cloud-vscode-toolkit/issues/new) 进行问题的交流和沟通。    
 
-## 相关操作
-
-<span id="openCOS"></span>
-### 设置开启 COS 上传
-
-1. 选择左下角的<img src="https://main.qcloudimg.com/raw/20fd46098cf037eb003dc41f1f913313.png" style="margin:-3px 0px;"/> >【Settings】。
-2. 在“Settings”页面，选择【Extensions】>【Scf】并勾选【Enable deployed by COS】。如下图所示：
-    ![](https://main.qcloudimg.com/raw/05ca88747213e5a102747683dc20233a.png)
-
-
 
 ## 欢迎交流<span id="welcome"></span>
 如果您对 Tencent Serverless 感兴趣，您可以加入QQ群（537539545）与我们交流。    
